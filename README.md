@@ -5,6 +5,12 @@
 npx create-react-app . --template typescript
 ```
 
+> Lesson 14: Redux Toolkit
+```
+npm install @reduxjs/toolkit react-redux
+npm install react-router-dom
+```
+
 ## How to run
 ```
 npm start

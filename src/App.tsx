@@ -1,23 +1,31 @@
 import React from 'react';
 import './App.css';
-import {Person, Country} from "./components/Person";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {Contact} from './pages/Contact';
+import {Home} from './pages/Home';
+import {Login} from './pages/Login';
+import { NavBar } from './components/NavBar';
+import {Lesson13} from './pages/Lesson13';
+import {Provider} from "react-redux";
+import { store } from './store';
 
 function App() {
-  const getAge = (name: string): number => {
-    return 9;
-  }
+  
 
   return (
     <div className="App">
-        <Person 
-                name="Peter"
-                email="pedro@gmail.com"
-                age={21}
-                isMarried={true}
-                friends={["jessica","jake"]}
-                country={Country.Brazil}
-
-            />
+      <Provider store={store}>
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/lesson13" element={<Lesson13 />} />
+            
+          </Routes>
+        </Router>
+      </Provider>
     </div>
   );
 }
